@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /*   min-height:100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: url("https://cdn.dribbble.com/users/5957386/screenshots/15804593/cartoon-colorful-galaxy_4x.png");
+  background-size: cover;
+}
+
+.restart {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  margin: 10px;
+  padding: 10px;
+  min-width: fit-content;
+  background: rgb(52, 128, 235);
+  color: white;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.restart:hover {
+  background: rgb(252, 136, 3);
+}
+
+.game-over,
+.start,
+.final-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 35%;
+  left: 40%;
+  margin: 10px;
+  padding: 10px;
+  min-width: fit-content;
+  width: 100px;
+  height: fit-content;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  z-index: 1;
+}
+
+.game-over {
+  position: absolute;
+  display: none;
+}
+
+.displayed {
+  display: flex;
+}
+
+.start {
+  top: 45%;
+  left: 40%;
+  background: rgb(52, 128, 235);
+}
+
+.final-result {
+  top: 35%;
+  left: 40%;
+  background: rgb(94, 42, 145);
+  /*   background: rgb(214, 40, 17); */
+}
+
+.start:hover {
+  background: rgb(50, 168, 72);
+}
+
+.results {
+  left: 20px;
+  min-width: fit-content;
+  width: 150px;
+  color: white;
+  text-align: center;
+  font-size: 28px;
+}
+
+.grid {
+  width: 525px;
+  height: 525px;
+  border: 1px solid white;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  backdrop-filter: blur(7px);
+}
+
+.grid div {
+  width: 35px;
+  height: 35px;
+}
+
+.invader {
+  background: url("https://i.postimg.cc/W4sHHVys/images-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 10px;
+}
+
+.shooter {
+  background-image: url("https://i.postimg.cc/Rh0R7VqD/space-ship-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.laser {
+  display: flex;
+  width: 5px !important;
+  background-color: orange;
+  border-radius: 50% 50% 0 0;
+  margin: auto;
+}
+
+.boom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*   background-color: red; */
+}
+
+.boom::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  animation: boom 1s forwards;
+}
+
+@keyframes boom {
+  0% {
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    opacity: 1;
+    position: absolute;
+    z-index: 2;
+  }
+  30% {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  100% {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+  }
+}
